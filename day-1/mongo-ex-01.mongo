@@ -1,0 +1,9 @@
+db.linkedon.find( { "salary": { $gt: 25000 } } ).count()
+
+db.linkedon.find({},{
+    "_id": false,
+    "firstName": true,
+    "salary": true
+}).sort({"salary": -1}).limit(3)
+
+db.linkedon.find( { $and: [ { salary: { "$gte": 7000 } }, { "currentCompany.name": "Walmart"  } ] } ).count()
